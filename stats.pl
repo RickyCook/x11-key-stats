@@ -8,6 +8,10 @@ use constant AVG_NUM     => 100;
 use constant TOO_LONG    => 2;
 use constant WORD_LENGTH => 5;
 
+my $out_message = defined $ARGV[0] && $ARGV[0] eq '-p' ?
+	"%.3f %.1f\n" :
+	"%.3f seconds between keys = %.1f wpm\n";
+
 open(KEYS, '-|', './keylogger-X11');
 
 my $keys_to_average_count = 0;
@@ -21,7 +25,7 @@ while (<KEYS>) {
 		if ($time_since < TOO_LONG) {
 			$avg = (($avg * $real_avg_num) + $time_since) / ($real_avg_num + 1);
 			my $wpm = 60 / ($avg * WORD_LENGTH);
-			printf "%.3f seconds between keys = %.1f wpm\n", $avg, $wpm;
+			printf $out_message, $avg, $wpm;
 		}
 	}
 	$last = $now;

@@ -10,4 +10,6 @@ Simple, live, global key event stats for X11
 
 ## Usage
 
-    ./stats.pl
+    ./stats.pl [-p]
+
+    -p  Parsable mode; output is character time and wpm split by whitespace
