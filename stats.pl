@@ -12,6 +12,8 @@ my $out_message = defined $ARGV[0] && $ARGV[0] eq '-p' ?
 	"%.3f %.1f\n" :
 	"%.3f seconds between keys = %.1f wpm\n";
 
+$| = 1;
+
 open(KEYS, '-|', './keylogger-X11');
 
 my $keys_to_average_count = 0;
