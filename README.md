@@ -7,6 +7,9 @@ Simple, live, global key event stats for X11
 
   * Clone and make https://github.com/RickyCook/keylogger-X11
   * Put resulting ```keylogger-X11``` binary in the same directory as stats.pl
+  * Install packages
+
+  	```cpanm List::MoreUtils```
 
 ## Installation (Google forms)
 
