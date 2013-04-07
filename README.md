@@ -10,9 +10,13 @@ Simple, live, global key event stats for X11
 
 ## Installation (Google forms)
 
-  * Install WWW::Mechanize
+  * Install packages
 
-    cpanm WWW::Mechanize
+    cpanm LWP::UserAgent Time::Format
+
+  * Create a Google form with timestamp and WPM questions
+  * From the form submission page, get the form action URL, timestamp question input name and the WPM question input name and put them in the ```FORM_URL```, ```TIMESTAMP_NAME``` and ```WPM_NAME``` fields respectively
+  * Type some stuff! You should see information getting submitted right away. Make graphs, analyze the results!
 
 ## Usage
 
