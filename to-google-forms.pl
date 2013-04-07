@@ -14,7 +14,7 @@ use constant WPM_NAME       => 'entry.2080196239';
 
 open(DAT, '-|', './stats.pl -p');
 
-my $last = 0;
+my $last = time;
 while (<DAT>) {
 	my $now = time;
 	if (($now - $last) >= MIN_WAIT) {
