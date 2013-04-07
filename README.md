@@ -12,7 +12,7 @@ Simple, live, global key event stats for X11
 
   * Install packages
 
-    cpanm LWP::UserAgent Time::Format
+    ```cpanm LWP::UserAgent Time::Format```
 
   * Create a Google form with timestamp and WPM questions
   * From the form submission page, get the form action URL, timestamp question input name and the WPM question input name and put them in the ```FORM_URL```, ```TIMESTAMP_NAME``` and ```WPM_NAME``` fields respectively
