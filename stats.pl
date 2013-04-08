@@ -2,6 +2,8 @@
 use strict;
 use warnings;
 
+use local::lib;
+
 use Time::HiRes qw(time);
 use List::MoreUtils qw(none any);
 
