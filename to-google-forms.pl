@@ -7,20 +7,22 @@ use local::lib;
 use LWP::UserAgent;
 use Time::Format qw(%time);
 
-use constant MIN_WAIT       => 60;
+use constant MIN_KEYS       => 100;
 use constant FORM_URL       => 'https://docs.google.com/forms/d/1aVXl6Nzobm3mGYhUUHUeetmm0SM0zSK7GqXVQgwX7RI/formResponse';
 use constant TIMESTAMP_NAME => 'entry.500527300';
 use constant WPM_NAME       => 'entry.2080196239';
 
 open(DAT, '-|', './stats.pl -p');
 
-my $last = time;
+my $keys = 0;
 while (<DAT>) {
 	my $now = time;
-	if (($now - $last) >= MIN_WAIT) {
+	if ($keys >= MIN_KEYS) {
 		my ($chr, $wpm) = split /\s/;
 		submit("$time{'yyyy/mm/dd hh:mm:ss', $now}", $wpm);
-		$last = $now;
+		$keys = 0;
+	} else {
+		$keys++;
 	}
 }
 close DAT;
